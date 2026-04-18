@@ -9,6 +9,8 @@ const nextConfig = {
       },
     ],
   },
+  // This makes deployment faster and works perfectly with Cloudflare
+  output: 'standalone',
 };
 
 export default nextConfig;
