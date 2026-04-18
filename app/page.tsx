@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { searchMovies, getTrendingMovies, getPosterUrl, TMDBMovie } from '@/lib/tmdb';
 import { useAuth } from '@/components/AuthProvider';
 import { toast } from 'sonner';
+import Navbar from '@/components/Navbar';
 
 export default function HomePage() {
   const [movies, setMovies] = useState<TMDBMovie[]>([]);
@@ -48,31 +49,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navbar */}
-      <nav className="border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="font-display text-4xl text-primary vhs-flicker">VHS</span>
-            <span className="text-secondary font-mono-retro text-2xl">VIDEO STORE</span>
-          </Link>
-
-          <div className="flex items-center gap-6">
-            {user ? (
-              <>
-                <Link href="/favorites" className="text-secondary hover:text-glow-cyan font-mono-retro">❤️ FAVORITES</Link>
-                <Link href="/watchlists" className="text-secondary hover:text-glow-cyan font-mono-retro">📼 WATCHLISTS</Link>
-                <Link href="/profile" className="text-secondary hover:text-glow-cyan font-mono-retro">PROFILE</Link>
-              </>
-            ) : (
-              <Link
-                href="/login"
-                className="px-6 py-2 border border-secondary text-secondary font-mono-retro hover:neon-border-cyan transition-all"
-              >
-                LOG IN
-              </Link>
-            )}
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Hero / Search */}

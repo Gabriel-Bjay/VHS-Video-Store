@@ -10,6 +10,7 @@ import { db } from '@/lib/firebase';
 import { collection, onSnapshot, query, orderBy, deleteDoc, doc } from 'firebase/firestore';
 import { getPosterUrl } from '@/lib/tmdb';
 import { toast } from 'sonner';
+import Navbar from '@/components/Navbar';
 
 type Favorite = {
   id: string;
@@ -58,21 +59,7 @@ export default function FavoritesPage() {
     <ProtectedRoute>
       <div className="min-h-screen bg-background text-foreground">
         {/* Navbar - same as homepage */}
-        <nav className="border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3">
-              <span className="font-display text-4xl text-primary vhs-flicker">VHS</span>
-              <span className="text-secondary font-mono-retro text-2xl">VIDEO STORE</span>
-            </Link>
-
-            <div className="flex items-center gap-6">
-              <Link href="/" className="text-secondary hover:text-glow-cyan font-mono-retro">🏠 HOME</Link>
-              <Link href="/favorites" className="text-primary font-mono-retro">❤️ FAVORITES</Link>
-              <Link href="/watchlists" className="text-secondary hover:text-glow-cyan font-mono-retro">📼 WATCHLISTS</Link>
-              <Link href="/profile" className="text-secondary hover:text-glow-cyan font-mono-retro">PROFILE</Link>
-            </div>
-          </div>
-        </nav>
+        <Navbar />
 
         <div className="max-w-7xl mx-auto px-6 py-8">
           <h1 className="font-display text-5xl text-primary vhs-flicker mb-2">
